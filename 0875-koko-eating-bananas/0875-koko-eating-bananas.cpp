@@ -3,8 +3,7 @@ public:
     bool check(int m,vector<int>& piles, int h){
         long long cnt=0;
         for(int i:piles){
-            cnt=cnt+(i/m);
-            if(i%m>0) cnt=cnt+1;
+            cnt+=(i+m-1)/m;
         }
         return cnt<=h;
     }
