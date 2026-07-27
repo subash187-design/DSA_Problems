@@ -15,8 +15,8 @@ public:
     void pre(TreeNode* root){
         if(root==NULL) return;
         res.push_back(root->val);
-       preorderTraversal(root->left);
-       preorderTraversal(root->right);
+       pre(root->left);
+       pre(root->right);
     }
     vector<int> preorderTraversal(TreeNode* root) {
        pre(root);
