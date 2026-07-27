@@ -14,7 +14,7 @@ public:
     int rt=0;
     unordered_map<int,int>mp;
     TreeNode* tree(vector<int>& preorder, vector<int>& postorder,int i,int j){
-        if(i>j || rt>preorder.size()) return NULL;
+        if(i>j ) return NULL;
         TreeNode* root =new TreeNode(preorder[rt]);
         
         int m=mp[preorder[rt]];
