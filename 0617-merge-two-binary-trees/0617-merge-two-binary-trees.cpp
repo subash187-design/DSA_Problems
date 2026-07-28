@@ -17,26 +17,16 @@ public:
      }
      int sum=0;   
      if(root1==NULL){
-        sum+=root2->val;
-        TreeNode* temp=new TreeNode(sum);
-        temp->left=root2->left;
-        temp->right=root2->right;
-         return temp;
+        return root2;
      }
      else if(root2==NULL){
-        sum+=root1->val;
-        TreeNode* temp=new TreeNode(sum);
-        temp->left=root1->left;
-        temp->right=root1->right;
-         return temp;
+        return root1;
      }
-     else{
-        sum+=root1->val+root2->val;
+     sum+=root1->val+root2->val;
      TreeNode* temp=new TreeNode(sum);
      temp->left=mergeTrees(root1->left,root2->left);
      temp->right=mergeTrees(root1->right,root2->right);
       return temp;
-     }
     
     }
 
