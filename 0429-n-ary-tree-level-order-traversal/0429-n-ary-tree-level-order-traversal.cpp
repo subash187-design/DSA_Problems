@@ -30,9 +30,10 @@ public:
             Node* temp=que.front().first;
             int l=que.front().second;
             que.pop();
+            if(l+1>=res.size() && temp->children.size()!=0) res.push_back({});
             for(auto i:temp->children){
                 if(i!=NULL){
-                if(l+1>=res.size()) res.push_back({});
+                
                 res[l+1].push_back(i->val);
                 que.push({i,l+1});
                 }
