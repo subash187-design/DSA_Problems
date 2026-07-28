@@ -11,22 +11,35 @@
  */
 class Solution {
 public:
-    int count(TreeNode* root){
-        if(root==NULL)
-        return 0;
-        return 1+count(root->left)+count(root->right);
-    }
-    bool rec(TreeNode* root,int i,int n){
-        if(root==NULL){
-            return true;
+    map<int,int>res;
+    bool flag=true;
+    void func(TreeNode* root,int ind){
+        if(ind >= 203){
+        return;
         }
-        if(i>=n) 
-        return false;
+        if(root==NULL){
+            res[ind]=-1;
+            return;
+        }
+        res[ind]=root->val;
+        func(root->left,ind*2+1);
+        func(root->right,ind*2+2);
 
-        return rec(root->left,2*i+1,n) && rec(root->right,2*i+2,n);
     }
     bool isCompleteTree(TreeNode* root) {
-        int n=count(root);
-        return rec(root,0,n);
+        func(root,0);
+        int flag=0;
+        for(auto i:res){
+            if(i.second==-1 && flag==0){
+            flag=1;
+            continue;
+            }
+            else if(i.second!=-1 && flag==1){
+                return false;
+            }
+            
+        }
+        return true;
+
     }
 };
