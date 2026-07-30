@@ -33,7 +33,6 @@ public:
             curr=curr->arr[bt];
             }
         }
-        cout<<ans<<endl;
         return ans;
     }
     int findMaximumXOR(vector<int>& nums) {
