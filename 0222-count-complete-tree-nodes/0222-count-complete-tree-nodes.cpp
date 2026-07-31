@@ -34,7 +34,7 @@ public:
      int rh=rightheight(root);
      cout<<root->val<<" "<<lh<<" "<<rh<<endl;
      if(lh==rh)
-     return pow(2,lh)-1;
+     return (1<<lh)-1;
      else
      return 1+countNodes(root->left)+countNodes(root->right);
 
