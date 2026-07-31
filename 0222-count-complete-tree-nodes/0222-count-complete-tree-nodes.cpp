@@ -32,7 +32,6 @@ public:
      return 0;
      int lh=leftheight(root);
      int rh=rightheight(root);
-     cout<<root->val<<" "<<lh<<" "<<rh<<endl;
      if(lh==rh)
      return (1<<lh)-1;
      else
