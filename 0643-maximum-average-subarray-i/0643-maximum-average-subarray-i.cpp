@@ -13,7 +13,6 @@ public:
             l++;
         }
         if(r-l+1==k){
-            cout<<sum<<endl;
             res=max(res,((sum*1.0)/(k)));
         }
       }  
