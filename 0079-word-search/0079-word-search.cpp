@@ -3,7 +3,7 @@ public:
     int dx[4]={-1,0,0,1};
     int dy[4]={0,-1,1,0};
     int n,m;
-    bool dfs(int i,int j,int a,vector<vector<char>>& board, string word,vector<vector<int>>&vis){
+    bool dfs(int i,int j,int a,vector<vector<char>>& board, string& word,vector<vector<int>>&vis){
         if(a>=word.size())
         return true;
         if(word[a]!=board[i][j])
