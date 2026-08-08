@@ -18,27 +18,19 @@ public:
 
 class Solution {
 public:
+    void rec(Node* root){
+        if(root==NULL) return;
+        if(root->left )
+        root->left->next=root->right;
+        if(root->next && root->right)
+        root->right->next=root->next->left;
+        rec(root->left);
+        rec(root->right);
+    }
     Node* connect(Node* root) {
         if(root==NULL)
         return root;
-        queue<Node*>que;
-        que.push(root);
-        while(!que.empty()){
-            int n=que.size();
-            for(int i=0;i<n;i++){
-                Node* curr=que.front();
-                que.pop();
-                if(i+1<n)
-                {
-                    Node* nt=que.front();
-                    curr->next=nt;
-                }
-                if(curr->left)
-                que.push(curr->left);
-                if(curr->right)
-                que.push(curr->right);
-            }
-        }
-        return root;
+         rec(root);
+         return root;
     }
 };
