@@ -18,13 +18,16 @@ public:
         return 0;
         int lt=rec(root->left);
         int rt=rec(root->right);
-        int l=0,r=0;
         if(root->left && root->left->val==root->val)
-        l=lt+1;
+        lt=lt+1;
+        else
+        lt=0;
         if(root->right && root->right->val==root->val)
-        r=rt+1;
-        ans=max(ans,l+r);
-        return max(l,r);
+        rt=rt+1;
+        else
+        rt=0;
+        ans=max(ans,lt+rt);
+        return max(lt,rt);
         
     }
     int longestUnivaluePath(TreeNode* root) {
