@@ -12,15 +12,12 @@ public:
         if(grid[i][j]==-1 || grid[x][y]==-1)
         return INT_MIN;
         int ans=0;
-        if(grid[i][j]==1 && grid[x][y]==1 && i==x && j==y){
-        ans=1;
+        if( i==x && j==y){
+        ans=grid[i][j];
         }
-        else if(grid[i][j]==1 && grid[x][y]==1 && (i!=x || j!=y))
-        ans=2;
-        else if(grid[i][j]==1)
-        ans=1;
-        else if(grid[x][y]==1)
-        ans=1;
+        else
+        ans=grid[i][j]+grid[x][y];
+        
         int k=INT_MIN;
         k=max(k,rec(i+1,j,x+1,y,grid));
         k=max(k,rec(i,j+1,x,y+1,grid));
@@ -33,7 +30,6 @@ public:
      n=grid.size();
      memset(dp,-1,sizeof(dp));
      int ans=rec(0,0,0,0,grid);
-
      return ans<0?0:ans;  
     }
 };
