@@ -18,7 +18,7 @@ public:
         return dp[n][absent][late]=ans;
     }
     int checkRecord(int n) {
-        dp.resize(n+1,vector<vector<int>>(3,vector<int>(4,-1)));
+        dp.resize(n+1,vector<vector<int>>(2,vector<int>(3,-1)));
         return rec(n,0,0);
     }
 };
