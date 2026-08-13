@@ -7,16 +7,12 @@ public:
             return;
         }
         for(int j=i;j<nums.size();j++){
-            if(j>i && nums[j]==nums[j-1]) continue;
-            else{
             swap(nums[j],nums[i]);
             rec(i+1,nums);
             swap(nums[j],nums[i]);
-            }
         }
     }
     vector<vector<int>> permuteUnique(vector<int>& nums) {
-        sort(nums.begin(),nums.end());
        rec(0,nums);
        vector<vector<int>>ans;
        for(auto i:res)
