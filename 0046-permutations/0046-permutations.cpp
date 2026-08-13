@@ -1,25 +1,19 @@
 class Solution {
 public:
     vector<vector<int>>res;
-    void rec(vector<int>&temp,unordered_map<int,int>mp,vector<int>&nums){
-        if(temp.size()==nums.size()){
-            res.push_back(temp);
+    void rec(int i,vector<int>&nums){
+        if(i==nums.size()){
+            res.push_back(nums);
             return;
         }
-        for(int i=0;i<nums.size();i++){
-            if(mp[nums[i]]==0){
-                mp[nums[i]]=1;
-                temp.push_back(nums[i]);
-                rec(temp,mp,nums);
-                mp[nums[i]]=0;
-                temp.pop_back();
-            }
+        for(int j=i;j<nums.size();j++){
+            swap(nums[j],nums[i]);
+            rec(i+1,nums);
+            swap(nums[j],nums[i]);
         }
     }
     vector<vector<int>> permute(vector<int>& nums) {
-       unordered_map<int,int>mp;
-       vector<int>temp;
-       rec(temp,mp,nums);
+       rec(0,nums);
        return res;
     }
 };
