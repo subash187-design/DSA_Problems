@@ -1,6 +1,7 @@
 class Solution {
 public:
     int dp[404][404];
+    int res=0;
     int rec(int i, int j, vector<vector<int>>& matrix) {
         if (i < 0 || j < 0)
             return 0;
@@ -10,9 +11,9 @@ public:
         ans = min(ans, rec(i - 1, j, matrix));
         ans = min(ans, rec(i - 1, j - 1, matrix));
         ans = min(ans, rec(i, j - 1, matrix));
-        // cout<<i<<" "<<j<<" "<<ans<<endl;
         if(matrix[i][j]==1) {
         matrix[i][j]=1+ans;
+        res=res+(1+ans);
         return dp[i][j]=1+ans;
         }
         return dp[i][j]=0;
@@ -23,12 +24,6 @@ public:
         int m = matrix[0].size();
         memset(dp, -1, sizeof(dp));
         rec(n - 1, m - 1, matrix);
-        int res=0;
-        for(int i=0;i<n;i++){
-            for(int j=0;j<m;j++){
-               res+=matrix[i][j];
-            }
-        }
         return res;
 
     }
