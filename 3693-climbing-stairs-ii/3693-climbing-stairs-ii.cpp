@@ -7,14 +7,18 @@ public:
         if(dp[i]!=-1)
         return dp[i];
         int ans=INT_MAX;
+        int k;
         if(i+1<=n){
-            ans=min(ans,rec(i+1,n,costs)+costs[i+1-1]+(((i+1)-i)*((i+1)-i)));
+            k=rec(i+1,n,costs)+costs[i+1-1]+(((i+1)-i)*((i+1)-i));
+            ans=min(ans,k);
         }
         if(i+2<=n){
-            ans=min(ans,rec(i+2,n,costs)+costs[i+2-1]+(((i+2)-i)*((i+2)-i)));
+            k=rec(i+2,n,costs)+costs[i+2-1]+(((i+2)-i)*((i+2)-i));
+            ans=min(ans,k);
         }
         if(i+3<=n){
-            ans=min(ans,rec(i+3,n,costs)+costs[i+3-1]+(((i+3)-i)*((i+3)-i)));
+            k=rec(i+3,n,costs)+costs[i+3-1]+(((i+3)-i)*((i+3)-i));
+            ans=min(ans,k);
         }
         return dp[i]=ans;
     }
