@@ -17,7 +17,7 @@ public:
         ans = ans || rec(i-1,j-1,s,p);
         if(p[j]=='*'){
         if(j-1>=0 && s[i]==p[j-1] || p[j-1]=='.')
-        ans = ans || rec(i-1,j,s,p) || rec(i-1,j-2,s,p);
+        ans = ans || rec(i-1,j,s,p);
         ans = ans || rec(i,j-2,s,p);
         }
         return dp[i][j]=ans;
