@@ -31,7 +31,7 @@ public:
         }
         reverse(arr.begin(), arr.end());
         int nonRepeat = rec(0, 1, 0, 0, arr);
-        cout << nonRepeat << endl;
+        
         return n + 1 - nonRepeat;
     }
 };
