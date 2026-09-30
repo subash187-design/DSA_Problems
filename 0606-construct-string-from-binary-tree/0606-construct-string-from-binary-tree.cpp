@@ -12,30 +12,29 @@
  */
 class Solution {
 public:
-    string rec(TreeNode* root, string& temp) {
+    void rec(TreeNode* root, string& temp) {
         if (root == NULL)
-            return "";
+            return ;
         temp += to_string(root->val);
         if (root->left == NULL && root->right == NULL)
-            return temp;
+            return;
         if (root->right != NULL) {
             temp += '(';
-            string left = rec(root->left, temp);
+            rec(root->left, temp);
             temp += ')';
             temp += '(';
-            string right = rec(root->right, temp);
+            rec(root->right, temp);
             temp += ')';
         }
         else{
             temp += '(';
-            string left = rec(root->left, temp);
+            rec(root->left, temp);
             temp += ')';
         }
-
-        return temp;
     }
     string tree2str(TreeNode* root) {
         string temp = "";
-        return rec(root, temp);
+        rec(root, temp);
+        return temp;
     }
 };
