@@ -10,7 +10,7 @@ public:
         int bound = (tight == 1) ? arr[pos] : 9;
         for(int i = 0; i <= bound ; i++){
             int newStart = (isStart == 1 || i != 0) ? 1 : 0;
-            int newTight = (i == bound) ? 1 : 0;
+            int newTight = (i == bound && tight == 1) ? 1 : 0;
             if(newStart == 0){
                 ans += rec(pos + 1, newTight, newStart, mask, arr);
             }
