@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int dp[32][2][2][4000];
+    int dp[10][2][2][4000];
     int rec(int pos,int tight,int isStart,int cnt,vector<int>&arr){
         if(pos==arr.size())
         return cnt;
