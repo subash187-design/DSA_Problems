@@ -1,9 +1,7 @@
 SELECT MAX(salary) AS SecondHighestSalary
 FROM (
-    SELECT id,salary,
-    DENSE_RANK() over(
-        ORDER BY salary DESC
-    ) AS dense_rk
+    SELECT DISTINCT(salary)
     FROM Employee
-)AS nthHighest
-WHERE dense_rk = 2;
+    ORDER BY salary DESC
+    LIMIT 1 OFFSET 1
+)AS nthHighest;
