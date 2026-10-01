@@ -1,9 +1,9 @@
 # Write your MySQL query statement below
-SELECT *
+SELECT score,rk as 'Rank'
 FROM (
     SELECT score,
     DENSE_RANK() over(
         ORDER BY score DESC
-    ) AS 'rank'
+    ) AS rk
     FROM Scores
 ) AS temp;
