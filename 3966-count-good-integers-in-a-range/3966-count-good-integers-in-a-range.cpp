@@ -4,7 +4,7 @@ public:
     ll dp[17][2][2][12];
     ll rec(int i,int isStart,int tight,int prev,int k,vector<int>&arr){
         if(i >= arr.size())
-        return isStart;
+        return 1;
         if(dp[i][isStart][tight][prev + 1] != -1)
         return dp[i][isStart][tight][prev + 1];
         ll ans = 0;
@@ -38,6 +38,7 @@ public:
         ll ans1 = rec(0,0,1,-1,k,arr2);
         memset(dp,-1,sizeof(dp));
         ll ans2 = rec(0,0,1,-1,k,arr1);
+        cout<<ans1<<" "<<ans2<<endl;
         return ans1 - ans2;
     }
 };
