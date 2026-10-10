@@ -15,16 +15,15 @@ public:
     int rec(TreeNode* root){
         if(root==NULL)
         return 0;
-        int lh=rec(root->left);
-        int rh=rec(root->right);
-        res=max({res,root->val,lh+rh+root->val});
-        return max({root->val,root->val+max(lh,rh),0});
+        int lh= max(0,rec(root->left));
+        int rh= max(0,rec(root->right));
+        res=max(res,lh+rh+root->val);
+        return root -> val + max(lh, rh);
     }
     int maxPathSum(TreeNode* root) {
       if(root==NULL)
       return 0;
       rec(root);
-      return res;
-        
+      return res;     
     }
 };
